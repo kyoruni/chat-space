@@ -10,7 +10,7 @@
 
 ### Association
 
-- has_many :groups
+- has_many :groups, through: members
 - has_many :messages
 
 ## groups table
@@ -22,7 +22,7 @@
 
 ### Association
 
-- has_many :users
+- has_many :users, through: members
 - has_many :messages
 
 ## messages table

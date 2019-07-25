@@ -39,7 +39,7 @@
 ### Association
 
 - belongs_to :user
-- belongs_to :message
+- belongs_to :group
 
 ## members table
 

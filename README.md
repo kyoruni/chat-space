@@ -16,10 +16,9 @@
 
 ## groups table
 
-|     Column     |  Type  |            Options             |
-| :------------: | :----: | :----------------------------: |
-|      name      | string |          null: false           |
-| create_user_id | string | null: false, foreign_key: true |
+| Column |  Type  |   Options   |
+| :----: | :----: | :---------: |
+|  name  | string | null: false |
 
 ### Association
 

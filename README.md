@@ -31,7 +31,7 @@
 
 |  Column  |  Type   |            Options             |
 | :------: | :-----: | :----------------------------: |
-|   body   | integer |          null: false           |
+|   body   | string  |          null: false           |
 |  image   | string  |              ccc               |
 | user_id  | integer | null: false, foreign_key: true |
 | group_id | integer | null: false, foreign_key: true |

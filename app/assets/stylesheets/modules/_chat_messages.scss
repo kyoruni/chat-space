@@ -1,0 +1,30 @@
+.chat_messages {
+  background: $color-white;
+  height: calc(100vh - (100px + 90px)); // ヘッダーの100pxとフッターの90pxを引く
+  padding: 46px 40px;
+}
+
+.chat_message {
+  padding-bottom: 40px;
+
+  &__header {
+    display: flex;
+    margin-bottom: 10px;
+
+    &__name {
+      color: $color-darkGray;
+      margin-right: 10px;
+      font-size: 16px;
+      font-weight: bold;
+    }
+    &__date {
+      color: $color-brightGray;
+      font-size: 12px;
+    }
+  }
+  &__text {
+    color: $color-darkGray;
+    margin-bottom: 10px;
+    font-size: 14px;
+  }
+}

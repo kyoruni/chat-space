@@ -1,0 +1,19 @@
+.groups {
+  background: $color-brightNavy;
+  height: calc(100vh - 100px); // 高さはheaderの分マイナスする
+  padding: 20px 20px 0;
+
+  @include linkColor();
+
+  &__group {
+    margin-bottom: 40px;
+
+    &__name {
+      padding-bottom: 5px;
+      font-size: 15px;
+    }
+    &__message {
+      font-size: 11px;
+    }
+  }
+}

@@ -1,0 +1,42 @@
+.chat_header {
+  display: flex;
+  height: 100px;
+  padding-right: 40px;
+  justify-content: space-between; // 最初は左寄せ、最後は右寄せ
+  border-bottom: $border-property;
+
+  &__left {
+    padding-top: 35px;
+    padding-left: 40px;
+
+    &__current_group {
+      color: $color-darkGray;
+      padding-bottom: 15px;
+      font-size: 20px;
+    }
+    &__members {
+      display: flex;
+      color: $color-brightGray;
+      font-size: 12px;
+
+      &__member {
+        margin-right: 4.8px;
+      }
+    }
+  }
+  &__right {
+    padding-top: 30px;
+
+    &__editButton {
+      background: $color-trueWhite;
+      color: $color-aquaBlue;
+      height: 40px;
+      padding: 0 20px;
+      font-size: 17.5px;
+      font-weight: lighter;
+      line-height: 40px;
+      border: solid 1px;
+      cursor: pointer;
+    }
+  }
+}

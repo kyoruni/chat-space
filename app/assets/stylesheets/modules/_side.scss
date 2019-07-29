@@ -1,0 +1,28 @@
+.side {
+  color: $color-trueWhite;
+  width: 300px;
+
+  &__header {
+    background: $color-darkNavy;
+    height: 100px;
+    padding: 0 20px;
+    font-size: 16px;
+    font-weight: bold;
+    line-height: 100px;
+
+    &__box {
+      display: flex;
+      justify-content: space-between; // 最初は左寄せ、最後は右寄せ
+
+      &__icon {
+        @include linkColor();
+
+        & li {
+          display: inline-block;
+          margin-top: 2px;
+          font-size: 16px;
+        }
+      }
+    }
+  }
+}

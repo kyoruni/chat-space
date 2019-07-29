@@ -1,0 +1,19 @@
+@mixin linkColor() {
+  & a {
+    cursor: pointer;
+    text-decoration: none;
+  }
+
+  & a:link {
+    color: $color-trueWhite;
+  }
+  & a:visited {
+    color: $color-trueWhite;
+  }
+  & a:hover {
+    color: $color-trueWhite;
+  }
+  & a:active {
+    color: $color-trueWhite;
+  }
+}

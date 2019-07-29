@@ -1,0 +1,24 @@
+@import "./reset";
+@import "config/variable";
+@import "mixin/*";
+@import "modules/*";
+@import "font-awesome";
+
+* {
+  box-sizing: border-box;
+  overflow: scroll;
+  -ms-overflow-style: none; // IEでスクロールバーを非表示にする
+  overflow: -moz-scrollbars-none; // Firefoxでスクロールバーを非表示にする
+}
+
+*::-webkit-scrollbar {
+  display: none; // Chromeでスクロールバーを非表示にする
+}
+
+*:focus {
+  outline: none; // フォーム入力時の枠線を消す
+}
+
+.contents {
+  display: flex;
+}

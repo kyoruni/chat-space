@@ -60,3 +60,6 @@ gem 'font-awesome-rails'
 
 # devise
 gem 'devise'
+
+# デバッグ用
+gem 'pry-rails'

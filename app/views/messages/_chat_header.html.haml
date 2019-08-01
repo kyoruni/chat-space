@@ -7,4 +7,5 @@
       %li.chat_header__left__members__member 野比のび太
 
   .chat_header__right
-    %button.chat_header__right__editButton Edit
+    = link_to edit_group_path(1) do
+      %button.chat_header__right__editButton Edit

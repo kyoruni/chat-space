@@ -1,6 +1,6 @@
 .groups
   - current_user.groups.each do |group|
-    = link_to root_path do
+    = link_to group_messages_path(group) do
       .groups__group
         .groups__group__name
           %p

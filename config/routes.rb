@@ -6,5 +6,5 @@ Rails.application.routes.draw do
   end
 
   # 仮置き 後で戻す
-  root 'messages#index'
+  root 'groups#index'
 end

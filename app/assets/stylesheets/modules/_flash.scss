@@ -1,8 +1,12 @@
 .flash {
-  background: $color-aquaBlue;
   color: $color-trueWhite;
   width: 100vw;
   height: 24px;
   text-align: center;
-  display: none; // 必要なときに表示
+  &__alert {
+    background: $color-alert;
+  }
+  &__notice {
+    background: $color-aquaBlue;
+  }
 }

@@ -1,0 +1,9 @@
+.groups
+  - current_user.groups.each do |group|
+    = link_to root_path do
+      .groups__group
+        .groups__group__name
+          %p
+            = group.name
+        .groups__group__message
+          %p test message1

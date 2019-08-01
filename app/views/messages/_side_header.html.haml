@@ -1,7 +1,8 @@
 .side__header
   .side__header__box
     .side__header__box__name
-      %p 野比のび太
+      %p
+        = current_user.name
     %ul.side__header__box__icon
       %li
         = link_to root_path do

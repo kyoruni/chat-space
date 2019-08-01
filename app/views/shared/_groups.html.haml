@@ -1,66 +1,9 @@
 .groups
-  = current_user.groups.each do |group|
-    = group.name
-
-  = link_to root_path do
-    .groups__group
-      .groups__group__name
-        %p 野比家
-      .groups__group__message
-        %p test message1
-
-  = link_to root_path do
-    .groups__group
-      .groups__group__name
-        %p test group2
-      .groups__group__message
-        %p test message2
-
-  = link_to root_path do
-    .groups__group
-      .groups__group__name
-        %p test group3
-      .groups__group__message
-        %p test message3
-
-  = link_to root_path do
-    .groups__group
-      .groups__group__name
-        %p test group4
-      .groups__group__message
-        %p ドtest message4
-
-  = link_to root_path do
-    .groups__group
-      .groups__group__name
-        %p test group5
-      .groups__group__message
-        %p test message5
-
-  = link_to root_path do
-    .groups__group
-      .groups__group__name
-        %p test group6
-      .groups__group__message
-        %p test message6
-
-  = link_to root_path do
-    .groups__group
-      .groups__group__name
-        %p test group7
-      .groups__group__message
-        %p test message7
-
-  = link_to root_path do
-    .groups__group
-      .groups__group__name
-        %p test group8
-      .groups__group__message
-        %p test message8
-
-  = link_to root_path do
-    .groups__group
-      .groups__group__name
-        %p test group9
-      .groups__group__message
-        %p test message9
+  - current_user.groups.each do |group|
+    = link_to root_path do
+      .groups__group
+        .groups__group__name
+          %p
+            = group.name
+        .groups__group__message
+          %p test message1

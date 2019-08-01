@@ -12,6 +12,7 @@
 
     &__box {
       display: flex;
+      height: 100px;
       justify-content: space-between; // 最初は左寄せ、最後は右寄せ
 
       &__icon {

@@ -5,6 +5,5 @@ Rails.application.routes.draw do
     resources :messages, only: [:index, :create]
   end
 
-  # 仮置き 後で戻す
   root 'groups#index'
 end

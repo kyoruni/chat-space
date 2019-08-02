@@ -1,4 +1,6 @@
 .chat
   = render partial: "chat_header"
-  = render partial: "chat_messages"
+
+  .chat_messages
+    = render partial: 'chat_message', collection: @messages, as: :message
   = render partial: "chat_form"

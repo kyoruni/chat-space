@@ -3,6 +3,6 @@
     .chat_form__message__inputbox
       = f.text_field :body, class: 'chat_form__message__inputbox__text', placeholder: "type a message"
       = f.label :image, class: 'chat_form__message__inputbox__image' do
-        = f.file_field :image, class: 'chat_form__message__inputbox__image__file' do
-          = fa_icon 'image'
+        = f.file_field :image, class: 'chat_form__message__inputbox__image__file'
+        = fa_icon 'image'
     = f.submit 'Send', class: 'chat_form__message__button'

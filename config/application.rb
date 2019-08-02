@@ -17,5 +17,8 @@ module ChatSpace
 
     # デフォルト言語を日本語にする
     config.i18n.default_locale = :ja
+
+    # carrierwaveを使えるようにする
+    config.autoload_paths += Dir[Rails.root.join('app', 'uploaders')]
   end
 end

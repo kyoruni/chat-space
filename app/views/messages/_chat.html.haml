@@ -1,5 +1,5 @@
 .chat
-  = render partial: "chat_header"
+  = render partial: "chat_header", locals: { group: @group }
 
   .chat_messages
     = render partial: 'chat_message', collection: @messages, as: :message

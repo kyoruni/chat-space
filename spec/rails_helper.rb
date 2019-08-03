@@ -61,4 +61,9 @@ RSpec.configure do |config|
 
   # FactoryBotのモデル名記載を不要にする
   config.include FactoryBot::Syntax::Methods
+
+  # deviseをrspecで使用できるようにする
+  Dir[Rails.root.join('spec/support/**/*.rb')].each { |f| require f }
+  config.include Devise::Test::ControllerHelpers, type: :controller
+  config.include ControllerMacros, type: :controller
 end

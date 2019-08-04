@@ -20,3 +20,4 @@ public/uploads/*
 
 # 不要ファイルを除外
 .DS_Store
+public/images/*

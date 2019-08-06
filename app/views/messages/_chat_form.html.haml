@@ -1,5 +1,5 @@
 .chat_form
-  = form_for [@group, @message], html: { class: "chat_form__message" } do |f|
+  = form_for [@group, @message], html: { class: "chat_form__message", id: "new_message" } do |f|
     .chat_form__message__inputbox
       = f.text_field :body, class: 'chat_form__message__inputbox__text', placeholder: "type a message"
       = f.label :image, class: 'chat_form__message__inputbox__image' do

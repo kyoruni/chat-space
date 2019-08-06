@@ -1,4 +1,3 @@
-$(function() {
 $(document).on("turbolinks:load", function() {
   $(function() {
     function buildHTML(message) {

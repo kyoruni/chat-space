@@ -20,6 +20,11 @@ $(function() {
     return html;
   }
 
+  function scrollBottom(target) {
+    var scrollHeight = $(target)[0].scrollHeight;
+    $(target).animate({ scrollTop: scrollHeight }, 1000);
+  }
+
   $("#new_message").submit(function(e) {
     e.preventDefault(); // デフォルトのイベント(送信)を止める
 
@@ -36,7 +41,9 @@ $(function() {
     })
       .done(function(data) {
         var html = buildHTML(data);
-        $(".chat_messages").append(html);
+        var target = ".chat_messages";
+        $(target).append(html);
+        scrollBottom(target);
       })
       .fail(function(data) {
         alert("エラーが発生したためメッセージは送信できませんでした。");

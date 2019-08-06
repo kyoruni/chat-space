@@ -8,4 +8,4 @@
     - if message.body.present?
       %p
         = message.body
-    = image_tag message.image.url, class: 'chat_message__text__image' if message.image.present?
+    = image_tag message.image.url if message.image.present?

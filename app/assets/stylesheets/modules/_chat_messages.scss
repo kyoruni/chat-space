@@ -26,8 +26,8 @@
     color: $color-darkGray;
     margin-bottom: 10px;
     font-size: 14px;
-    &__image {
-      width: 300px;
-    }
+  }
+  &__text img {
+    width: 300px;
   }
 }

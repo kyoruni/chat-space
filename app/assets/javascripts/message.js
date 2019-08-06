@@ -26,8 +26,7 @@ $(function() {
   }
 
   $("#new_message").submit(function(e) {
-    e.preventDefault(); // デフォルトのイベント(送信)を止める
-
+    e.preventDefault();
     var formData = new FormData(this);
     var url = $(this).attr("action"); // リクエスト送信先のURLを取得
 
@@ -46,7 +45,10 @@ $(function() {
         scrollBottom(target);
       })
       .fail(function(data) {
-        alert("エラーが発生したためメッセージは送信できませんでした。");
+        alert("メッセージを入力してください。");
+      })
+      .always(function(data) {
+        $(".chat_form__message__button").prop("disabled", false); // ボタンを押下可能にする
       });
   });
 });

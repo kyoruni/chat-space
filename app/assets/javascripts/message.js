@@ -26,11 +26,6 @@ $(document).on("turbolinks:load", function() {
       $(target).animate({ scrollTop: scrollHeight }, 1000);
     }
 
-    function clearForm() {
-      $("#message_body").val(""); // 入力欄を空にする
-      $('input[type="file"]').val(null); // 選択中の画像を削除する
-    }
-
     $("#new_message").submit(function(e) {
       e.preventDefault();
       var formData = new FormData(this);
@@ -49,7 +44,7 @@ $(document).on("turbolinks:load", function() {
           var target = ".chat_messages";
           $(target).append(html);
           scrollBottom(target);
-          clearForm();
+          $("#new_message")[0].reset(); // 入力欄を空にする
         })
         .fail(function(data) {
           alert("メッセージを入力してください。");

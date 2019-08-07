@@ -34,9 +34,9 @@ $(function() {
                     <p class='chat-group-user__name'>
                       ${user_name}
                     </p>
-                  <div class='user-search-remove chat-group-user__btn chat-group-user__btn--remove js-remove-btn'>
-                    削除
-                  </div>
+                    <div class='user-search-remove chat-group-user__btn chat-group-user__btn--remove js-remove-btn'>
+                      削除
+                    </div>
               </div>`;
     $(memberList).append(html);
   }

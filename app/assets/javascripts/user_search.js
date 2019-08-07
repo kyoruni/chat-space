@@ -1,5 +1,6 @@
 $(function() {
-  var userList = $("#user-search-result");
+  var userList = $("#user-search-result"); // 検索結果のユーザーリスト
+  var memberList = $("#chat-group-users"); // チャットメンバーのリスト
 
   function appendUser(user) {
     var html = `<div class="chat-group-user clearfix">
@@ -23,6 +24,21 @@ $(function() {
     $(userList).append(html);
   }
 
+  function addMember(user) {
+    var user_id = user.attr("data-user-id");
+    var user_name = user.attr("data-user-name");
+    var html = `<div class='chat-group-user clearfix'>
+                  <input name='group[user_ids][]' type='hidden' value='${user_id}'>
+                    <p class='chat-group-user__name'>
+                      ${user_name}
+                    </p>
+                  <div class='user-search-remove chat-group-user__btn chat-group-user__btn--remove js-remove-btn'>
+                    削除
+                  </div>
+              </div>`;
+    $(memberList).append(html);
+  }
+
   $("#user-search-field").keyup(function() {
     var input = $("#user-search-field").val();
 
@@ -38,6 +54,9 @@ $(function() {
           // 検索結果あり＆入力あり
           users.forEach(function(user) {
             appendUser(user);
+            // $(this)
+            //   .parent(".chat-group-user")
+            //   .remove();
           });
         } else {
           appendErrUser();
@@ -47,5 +66,17 @@ $(function() {
         appendErrUser();
         alert("ユーザー検索に失敗しました");
       });
+  });
+
+  // 追加ボタンを押したユーザーを、メンバーリストに追加＆検索結果リストから削除
+  $(userList).on("click", ".user-search-add", function() {
+    addMember($(this));
+    $(this)
+      .parent(".chat-group-user")
+      .remove();
+  });
+
+  $(memberList).on("click", ".user-search-remove", function() {
+    window.alert("削除ボタン");
   });
 });

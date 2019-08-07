@@ -3,7 +3,6 @@ $(document).on("turbolinks:load", function() {
     var userList = $("#user-search-result"); // 検索結果のユーザーリスト
     var memberList = $("#chat-group-users"); // チャットメンバーのリスト
 
-    // 検索結果のユーザーリストを作成
     function appendUser(user) {
       var html = `<div class="chat-group-user clearfix">
                   <p class="chat-group-user__name">
@@ -26,7 +25,6 @@ $(document).on("turbolinks:load", function() {
       $(userList).append(html);
     }
 
-    // チャットメンバーのリストを作成
     function addMember(user) {
       var user_id = user.attr("data-user-id");
       var user_name = user.attr("data-user-name");
@@ -53,7 +51,6 @@ $(document).on("turbolinks:load", function() {
         .done(function(users) {
           $(userList).empty(); // 検索前にリストを初期化
           if (users.length !== 0 && input.length !== 0) {
-            // 検索結果あり＆入力あり
             users.forEach(function(user) {
               appendUser(user);
             });
@@ -67,7 +64,6 @@ $(document).on("turbolinks:load", function() {
         });
     });
 
-    // 追加ボタンを押したユーザーを、メンバーリストに追加＆検索結果リストから削除
     $(userList).on("click", ".user-search-add", function() {
       addMember($(this));
       $(this)

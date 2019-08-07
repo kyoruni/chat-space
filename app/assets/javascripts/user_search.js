@@ -45,6 +45,7 @@ $(function() {
       })
       .fail(function() {
         appendErrUser();
+        alert("ユーザー検索に失敗しました");
       });
   });
 });

@@ -2,6 +2,7 @@ $(function() {
   var userList = $("#user-search-result"); // 検索結果のユーザーリスト
   var memberList = $("#chat-group-users"); // チャットメンバーのリスト
 
+  // 検索結果のユーザーリストを作成
   function appendUser(user) {
     var html = `<div class="chat-group-user clearfix">
                   <p class="chat-group-user__name">
@@ -24,6 +25,7 @@ $(function() {
     $(userList).append(html);
   }
 
+  // チャットメンバーのリストを作成
   function addMember(user) {
     var user_id = user.attr("data-user-id");
     var user_name = user.attr("data-user-name");
@@ -74,6 +76,8 @@ $(function() {
   });
 
   $(memberList).on("click", ".user-search-remove", function() {
-    window.alert("削除ボタン");
+    $(this)
+      .parent(".chat-group-user")
+      .remove();
   });
 });

@@ -26,8 +26,8 @@ $(document).on("turbolinks:load", function() {
     }
 
     function addMember(user) {
-      var user_id = user.attr("data-user-id");
-      var user_name = user.attr("data-user-name");
+      var user_id = user.data("user-id");
+      var user_name = user.data("user-name");
       var html = `<div class='chat-group-user clearfix'>
                   <input name='group[user_ids][]' type='hidden' value='${user_id}'>
                     <p class='chat-group-user__name'>

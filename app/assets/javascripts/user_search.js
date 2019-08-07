@@ -54,9 +54,6 @@ $(function() {
           // 検索結果あり＆入力あり
           users.forEach(function(user) {
             appendUser(user);
-            // $(this)
-            //   .parent(".chat-group-user")
-            //   .remove();
           });
         } else {
           appendErrUser();

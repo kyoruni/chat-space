@@ -8,27 +8,17 @@
 
   .chat-group-form__field.clearfix
     .chat-group-form__field--left
-      = f.label :グループ名, class: 'chat-group-form__label'
+      = f.label :name, 'グループ名', class: 'chat-group-form__label'
     .chat-group-form__field--right
       = f.text_field :name, id: 'chat_group_name', class: 'chat-group-form__input', placeholder: 'グループ名を入力してください'
 
   .chat-group-form__field.clearfix
     .chat-group-form__field--left
-      = f.label :チャットメンバーを追加, class: "chat-group-form__label"
-
+      = f.label :users, 'チャットメンバーを追加', class: "chat-group-form__label"
     .chat-group-form__field--right
       .chat-group-form__search.clearfix
-        = f.text_field :id, class: 'chat-group-form__input', id: 'user-search-field', placeholder: '追加したいユーザー名を入力してください', value: ""
+        %input#user-search-field.chat-group-form__input{ placeholder: '追加したいユーザー名を入力してください' }
       #user-search-result
-
-      -# %input { name: 'chat_group[user_ids][]', type: 'hidden' value: '22' }
-      -# %p.chat-group-user__name seo_kyohei
-
-      -# #user-search-result
-      -#   #chat-group-user
-      -#     #chat-group-user-22.chat-group-user.clearfix
-      -#       %p.chat-group-user
-      -#         野村
 
     / この部分はインクリメンタルサーチ（ユーザー追加の非同期化のときに使用します
     /
@@ -54,7 +44,7 @@
         - group.users.each do |user|
           - unless current_user.id == user.id
             .chat-group-user.clearfix
-              %input{ name: 'group[user_ids][]', type: 'hidden', value: '${user_id}' }
+              %input{ name: 'group[user_ids][]', type: 'hidden', value: user.id }
                 %p.chat-group-user__name
                   = user.name
                 .user-search-remove.chat-group-user__btn.chat-group-user__btn--remove.js-remove-btn 
@@ -73,4 +63,4 @@
   .chat-group-form__field.clearfix
     .chat-group-form__field--left
     .chat-group-form__field--right
-      %input.chat-group-form__action-btn{"data-disable-with": "Save", name: "commit", type: "submit", value: "Save"}/
+      %input.chat-group-form__action-btn{"data-disable-with": "Save", name: "commit", type: "submit", value: "Save"}

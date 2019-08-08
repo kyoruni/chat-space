@@ -5,7 +5,7 @@ $(document).on("turbolinks:load", function() {
       var last_message_id = last_message.data("message-id"); // 最新メッセージのidを取得
 
       $.ajax({
-        url: "***",
+        url: "api/messages",
         type: "GET",
         dataType: "json",
         data: { id: last_message_id }

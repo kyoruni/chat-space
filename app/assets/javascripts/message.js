@@ -1,5 +1,23 @@
 $(document).on("turbolinks:load", function() {
   $(function() {
+    var reloadMessages = function() {
+      var last_message = $(".chat_message").last(); // 画面に表示されている、最新のメッセージを取得
+      var last_message_id = last_message.data("message-id"); // 最新メッセージのidを取得
+
+      $.ajax({
+        url: "***",
+        type: "GET",
+        dataType: "json",
+        data: { id: last_message_id }
+      })
+        .done(function(messages) {
+          console.log("success");
+        })
+        .fail(function() {
+          console.log("error");
+        });
+    };
+
     function buildHTML(message) {
       var image = message.image ? `<img src= ${message.image}>` : "";
       var html = `<div class="chat_message">

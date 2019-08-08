@@ -23,7 +23,7 @@ $(document).on("turbolinks:load", function() {
 
     function scrollBottom(target) {
       var scrollHeight = $(target)[0].scrollHeight;
-      $(target).animate({ scrollTop: scrollHeight }, 1000);
+      $(target).animate({ scrollTop: scrollHeight }, "fast");
     }
 
     $("#new_message").submit(function(e) {
@@ -67,7 +67,6 @@ $(document).on("turbolinks:load", function() {
           data: { id: last_message_id }
         })
           .done(function(messages) {
-            console.log("success");
             var insertHTML = "";
             var target = ".chat_messages";
 

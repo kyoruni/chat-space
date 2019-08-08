@@ -1,7 +1,15 @@
 $(document).on("turbolinks:load", function() {
   $(function() {
+    var memberUser = "";
+    var memberUserList = []; // グループに追加されているユーザーidの配列
     var userList = $("#user-search-result"); // 検索結果のユーザーリスト
     var memberList = $("#chat-group-users"); // チャットメンバーのリスト
+
+    // 最初に、グループに追加されているユーザーidの配列を作成する
+    memberList.find('input[name="group[user_ids][]"]').each(function(index) {
+      memberUser = Number($(this).val()); // 文字列で入っているので、数値にしておく
+      memberUserList.push(memberUser); // ユーザーid配列に追加
+    });
 
     function appendUser(user) {
       var html = `<div class="chat-group-user clearfix">
@@ -38,6 +46,19 @@ $(document).on("turbolinks:load", function() {
                     </div>
               </div>`;
       $(memberList).append(html);
+
+      // グループに追加されているユーザーidの配列にも追加する
+      memberUserList.push(user_id);
+    }
+
+    function delMember(deleteUserId) {
+      // グループに追加されているユーザーidの配列を、削除対象のユーザーidで検索
+      var idx = memberUserList.indexOf(Number(deleteUserId));
+
+      // 削除対象のユーザーidから削除
+      if (idx >= 0) {
+        memberUserList.splice(idx, 1);
+      }
     }
 
     $("#user-search-field").keyup(function() {
@@ -45,7 +66,7 @@ $(document).on("turbolinks:load", function() {
       $.ajax({
         type: "GET",
         url: "/users",
-        data: { keyword: input },
+        data: { keyword: input, user_ids: memberUserList },
         dataType: "json"
       })
         .done(function(users) {
@@ -72,6 +93,12 @@ $(document).on("turbolinks:load", function() {
     });
 
     $(memberList).on("click", ".user-search-remove", function() {
+      // メンバーから削除されるユーザーのidを取得
+      var deleteUserId = $(this)
+        .siblings('input[name="group[user_ids][]"]')
+        .val();
+      delMember(deleteUserId);
+
       $(this)
         .parent(".chat-group-user")
         .remove();

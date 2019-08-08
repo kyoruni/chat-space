@@ -66,6 +66,14 @@ $(document).on("turbolinks:load", function() {
       })
         .done(function(messages) {
           console.log("success");
+          var insertHTML = "";
+          var target = ".chat_messages";
+
+          messages.forEach(function(message) {
+            insertHtml = buildHTML(message);
+            $(target).append(html);
+            scrollBottom(target);
+          });
         })
         .fail(function() {
           console.log("error");

@@ -11,9 +11,9 @@ class MessagesController < ApplicationController
     @message = @group.messages.new(message_params)
     if @message.save
       respond_to do |format|
-       format.html
-       format.json
-     end
+        format.html
+        format.json
+      end
     else
       flash.now[:alert] = 'メッセージを入力してください。'
       render :index

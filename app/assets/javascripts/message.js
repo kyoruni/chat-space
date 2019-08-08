@@ -2,7 +2,7 @@ $(document).on("turbolinks:load", function() {
   $(function() {
     function buildHTML(message) {
       var image = message.image ? `<img src= ${message.image}>` : "";
-      var html = `<div class="chat_message">
+      var html = `<div class="chat_message" data-message-id="${message.id}">
                   <div class="chat_message__header">
                     <p class="chat_message__header__name">
                       ${message.user_name}
@@ -23,7 +23,7 @@ $(document).on("turbolinks:load", function() {
 
     function scrollBottom(target) {
       var scrollHeight = $(target)[0].scrollHeight;
-      $(target).animate({ scrollTop: scrollHeight }, 1000);
+      $(target).animate({ scrollTop: scrollHeight }, "fast");
     }
 
     $("#new_message").submit(function(e) {
@@ -53,5 +53,34 @@ $(document).on("turbolinks:load", function() {
           $(".chat_form__message__button").prop("disabled", false); // ボタンを押下可能にする
         });
     });
+
+    var reloadMessages = function() {
+      // メッセージのページでのみ自動更新する
+      if (window.location.href.match(/\/groups\/\d+\/messages/)) {
+        var last_message = $(".chat_message").last(); // 画面に表示されている、最新のメッセージを取得
+        var last_message_id = last_message.data("message-id"); // 最新メッセージのidを取得
+
+        $.ajax({
+          url: "api/messages",
+          type: "GET",
+          dataType: "json",
+          data: { id: last_message_id }
+        })
+          .done(function(messages) {
+            var insertHTML = "";
+            var target = ".chat_messages";
+
+            messages.forEach(function(message) {
+              insertHtml = buildHTML(message);
+              $(target).append(insertHtml);
+              scrollBottom(target);
+            });
+          })
+          .fail(function() {
+            alert("自動更新に失敗しました。");
+          });
+      }
+    };
+    setInterval(reloadMessages, 5000);
   });
 });

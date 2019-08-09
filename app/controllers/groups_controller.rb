@@ -32,7 +32,6 @@ class GroupsController < ApplicationController
   def group_params
     # user_idの値に配列を渡す
     user_ids = params[:group]["user_ids"]
-    user_ids << current_user.id.to_s # ログイン中のユーザーのidは送られてこないため、個別に追加する
     params.require(:group).permit(:name, { user_ids: [] })
   end
 

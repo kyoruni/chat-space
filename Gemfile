@@ -84,3 +84,6 @@ gem 'pry-rails'
 # 画像送信
 gem 'carrierwave'
 gem 'mini_magick'
+
+# 画像を外部ストレージにアップロード
+gem 'fog-aws'

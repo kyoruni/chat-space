@@ -59,7 +59,6 @@ $(document).on("turbolinks:load", function() {
       if (window.location.href.match(/\/groups\/\d+\/messages/)) {
         var last_message = $(".chat_message").last(); // 画面に表示されている、最新のメッセージを取得
         var last_message_id = last_message.data("message-id"); // 最新メッセージのidを取得
-
         $.ajax({
           url: "api/messages",
           type: "GET",
